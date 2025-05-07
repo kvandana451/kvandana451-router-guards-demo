@@ -1,0 +1,26 @@
+.custom-input {
+    width: 300px; /* Fixed width */
+    max-width: 80%; /* Responsive control */
+    margin-left:.5em;;
+    margin-top:.5em;
+  }
+ 
+  // :host {
+  //   display: block;
+  //   border-radius: 8px;
+  //   padding: 16px;
+  //   // max-width: 350px;
+  //   transform:none !important;
+   
+  //   animation: custom-dialog-enter 5s ease;
+  // }
+  
+  // @keyframes custom-dialog-enter {
+  //   from {
+  //     transform: scale(0) rotate(360deg);
+  //   }
+  
+  //   to {
+  //     transform: none;
+  //   }
+  // }

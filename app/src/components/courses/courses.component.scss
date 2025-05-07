@@ -1,0 +1,63 @@
+.courses-container {
+  max-width: clamp(250px, 60%, 500px);
+  margin: auto;
+  padding: 1em;
+}
+.courses-section {
+    display:flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom:16px;
+}
+a {
+  text-decoration: none;
+  display: flex;
+}
+.course-name {
+  margin-right: 0;
+  color: black;
+  background-color: #cfcfcf;
+  padding: 0.4em;
+  border-radius: 4px;
+  cursor:pointer;
+}
+.enroll-btn {
+  width: 100%;
+  padding:.5em;
+  max-width:none;
+}
+
+.dashboard-btn {
+  background-color: rgb(119, 16, 183);
+  margin-top: 1em;
+  max-width: 100px;
+}
+.dashboard-btn:hover {
+  background-color: rgb(148, 85, 186);
+}
+.dashboard-btn:active {
+  background-color: black;
+}
+.enrolled {
+  background-color: green;
+}
+@media (min-width: 400px) {
+  .courses-section {
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .course-name {
+    margin-right: 1em;
+    flex-basis: 250px;
+  }
+  .enroll-btn{
+    max-width:120px;
+  }
+}
+@media (min-width: 400px) {
+  .courses-container {
+    max-width: clamp(320px, 70%, 700px);
+  }
+}

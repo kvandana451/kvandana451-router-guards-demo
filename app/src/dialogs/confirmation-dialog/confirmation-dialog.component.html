@@ -1,0 +1,12 @@
+<div class="confirmation-section" *ngIf="isData(data)">
+    <p>Are you sure you wanna delete?</p>
+    <button mat-button (click)="deleteCourse(data)" [class.yes-btn]="true">Yes</button>
+    <button mat-button (click)="cancel()" class="no-btn">No</button>
+
+</div>
+<div class="dialog-section" *ngIf="!isData(data)">
+    <p>Are you sure you wanna delete?</p>
+    <button (click)="deleteLesson(data)" [class.yes-btn]="true">Yes</button>
+    <button class="no-btn" mat-button (click)="cancel()">No </button>
+
+</div>

@@ -1,0 +1,43 @@
+p{
+    color:#003300;
+    font-size:1.2rem;
+    text-align:center;
+}
+.login-section{
+    max-width:clamp(450px, 50%, 500px);
+   /* min-width:550px;
+    max-width:500px;*/
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:1em;
+    align-items:center;
+}
+button{
+    width:auto;//optional
+    height:auto;//optional
+    max-width:150px;
+    background-color:#efefef;
+    padding:1em;
+    cursor:pointer;
+    border:none;
+    border-radius:2px;
+}
+button:hover{
+    background-color:rgb(75, 0, 84);
+    color:white
+
+}
+button:active{
+    background-color:black
+}
+
+@media (min-width:576px){
+    .login-section{
+      
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around
+    }
+
+}

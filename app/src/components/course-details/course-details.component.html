@@ -1,0 +1,45 @@
+<div class="enrolledcourse-container">
+    <button (click)="logout()" class="logout-btn">logout</button>
+
+    <div *ngIf="selectedCourseDetails">
+        <h3>{{selectedCourseDetails.name}}</h3>
+        <p class="desc"><i>{{selectedCourseDetails.desc}}</i></p>
+    </div>
+    <div *ngIf="lessons &&  ifenrolled">
+        <mat-accordion class="mat-accordion" *ngFor="let lesson of lessons.lessons;index as i">
+            <mat-expansion-panel class="mat-expansion-panel">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <span class="badge">Lesson</span><span class="
+                            num">{{i+1}}</span><span class="tag">:</span>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{lesson}}
+                    </mat-panel-description>
+                    <mat-panel-description>
+                        <button class="mark-as-complete-btn" [attr.data-id]="i" *ngIf="!checkLessonsStatus(lesson)"
+                            (click)="markComplete($event,lesson);$event.stopPropagation();">Mark as
+                            Completed</button>
+                        <button class="mark-as-complete-btn completed-btn" *ngIf="checkLessonsStatus(lesson)"
+                            (click)="$event.stopPropagation();" disabled>
+                            Completed</button>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <youtube-player videoId="mVjYG9TSN88" />
+            </mat-expansion-panel>
+        </mat-accordion>
+        <div class="navigation-access">
+            <button class="view-course-btn" (click)="goToCourses()">View Courses</button>
+            <button routerLink="/dashboard" class=" enroll-btn dashboard-btn">Dashboard</button>
+
+        </div>
+    </div>
+
+    <div *ngIf="!ifenrolled || !lessons">
+        <p [style.color]="'red'">You must either enroll the course to access Lessons or if already ENROLLED admin has to
+            add the lessons for that course</p>
+        <button class="view-course-btn" (click)="goToCourses()">View Courses</button>
+        <button class="enroll-btn" (click)="enroll()">Enroll Now</button>
+    </div>
+
+</div>

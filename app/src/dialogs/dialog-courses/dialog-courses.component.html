@@ -1,0 +1,95 @@
+<form *ngIf="!data && addCourseForm" [formGroup]="addCourseForm">
+    <mat-form-field class="custom-input">
+        <mat-label>Course Id</mat-label>
+        <input matInput formControlName="id" />
+
+    </mat-form-field>
+    <mat-form-field class="custom-input">
+        <mat-label>Course Name</mat-label>
+        <input matInput formControlName="name" />
+
+    </mat-form-field>
+    <mat-form-field class="custom-input">
+        <mat-label>Course Description</mat-label>
+        <input matInput formControlName="desc" />
+    </mat-form-field>
+    <div>
+        <button mat-button (click)="saveCourse()">Save</button>
+        <button mat-button (click)="closeDialog()">Cancel</button>
+    </div>
+</form>
+
+
+
+
+
+<!-- Data -->
+<div *ngIf="data && !isLessons(data)&& CourseForm">
+    <form [formGroup]="CourseForm">
+        <mat-form-field class="custom-input">
+            <mat-label>Course Id</mat-label>
+            <input matInput formControlName="id" />
+
+        </mat-form-field>
+        <mat-form-field class="custom-input">
+            <mat-label>Course Name</mat-label>
+            <input matInput formControlName="name" />
+
+        </mat-form-field>
+        <mat-form-field class="custom-input">
+            <mat-label>Course Description</mat-label>
+            <input matInput formControlName="desc" />
+        </mat-form-field>
+        <div>
+            <button mat-button (click)="updateCourse(data)">Update</button>
+            <button mat-button (click)="cancelChanges()">Cancel</button>
+        </div>
+    </form>
+</div>
+<div *ngIf="data && isLessons(data) && typeof data !== 'number' && editLessonsForm ">
+    <form [formGroup]="editLessonsForm">
+        <div>
+            <div formArrayName="lessonsArray">
+                <div *ngFor="let lessonCtrl of lessonsArray.controls;index as i">
+                    <mat-form-field class="custom-input">
+                        <mat-label>Lesson{{i+1}}</mat-label>
+                        <input matInput [formControlName]="i" />
+
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <button mat-button (click)="updateLessons(data)">Save</button>
+    <button mat-button (click)="cancelUpdatingLessons()">Cancel</button>
+
+</div>
+
+<div *ngIf="data && addLessonForm">
+    <form *ngIf="isLessons(data) && typeof data === 'number'" [formGroup]="addLessonForm">
+        <div>
+            <div>
+                <mat-form-field class="custom-input">
+                    <mat-label>Course Id</mat-label>
+                    <input formControlName="id" matInput />
+
+                </mat-form-field>
+                <div formArrayName="addlessonsArray">
+                    <div *ngFor="let lessonCtrl of addlessonsArray.controls; let i = index">
+                        <mat-form-field class="custom-input">
+                            <mat-label>Lesson</mat-label>
+                            <input [formControlName]="i" matInput />
+
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button mat-button (click)="addLesson(data)">Save</button>
+        <button mat-button (click)="cancelAddingLessons()">Cancel</button>
+
+    </form>
+</div>

@@ -1,0 +1,20 @@
+.confirmation-section ,.dialog-section {
+  max-width: clamp(250px, 50%, 900px);
+  margin: auto;
+}
+
+button {
+  padding: 0.5em 1em;
+  margin-right: 0.5em;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  color:#ffffff;
+
+}
+ .yes-btn {
+    background-color: rgb(9, 9, 207);
+  }
+  .no-btn{
+    background-color:black;
+  }

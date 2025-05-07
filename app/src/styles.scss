@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    font-family:sans-serif;
+}
+.nav-section{
+    display:flex;
+    justify-content:space-between;
+    align-items:center
+}
+.enroll-btn{
+    cursor:pointer;
+    border:none;
+    color:white;
+    background-color:rgb(16, 136, 183);
+    border-radius:4px;
+    padding:.5em;
+    max-width:120px;
+    min-width:100px;
+    
+}
+.enroll-btn:hover{
+    background-color:rgb(112, 185, 214);
+}
+.enroll-btn:active{
+    background-color: black;
+}
+.unenroll-btn{
+    background-color:red;
+
+}
+.unenroll-btn:hover{
+    background-color:rgb(220, 87, 87);
+
+
+}
+.logout-btn{
+    padding:.8em;
+    border:none;
+    background-color:#ecececee;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+.cdk-overlay-container .mat-mdc-dialog-surface {
+    border-radius: 0 ; /* Force removal */
+  }
+
+  .mat-mdc-dialog-container .mat-mdc-dialog-surface {
+    min-width:100px
+  }
+ 
+  
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+  
+ 

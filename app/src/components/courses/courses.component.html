@@ -1,0 +1,28 @@
+<div class="courses-container">
+  <nav class="nav-section">
+    <a routerLink="/profile">
+      <i class="fa-solid fa-user"></i>
+    </a>
+    <button (click)="logout()" class="logout-btn">logout</button>
+
+  </nav>
+  <h3>List of Courses Available</h3>
+  <div>
+    <div class="courses-section" *ngFor="let course of courses">
+      <a class="course-name" (click)="gotocourseDetails(course,$event)">
+        <span>
+          {{course.name}}
+        </span>
+
+      </a>
+      <button [attr.data-id]="course.id" *ngIf="!(checkEnrolledCourses(course))" class="enroll-btn"
+        (click)="enroll(course, $event)">Enroll
+        Now</button>
+      <button [attr.data-id]="course.id" *ngIf="checkEnrolledCourses(course)" (click)="unenroll(course)"
+        class="enroll-btn unenroll-btn">Unenroll</button>
+
+    </div>
+  </div>
+
+  <button routerLink="/dashboard" class=" enroll-btn dashboard-btn">Dashboard</button>
+</div>

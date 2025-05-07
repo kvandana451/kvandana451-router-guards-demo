@@ -1,0 +1,22 @@
+.profile-section{
+    max-width:clamp(450px,60%,900px);
+    margin:auto;
+    padding: 1em;
+}
+.save-btn,.cancel-btn{
+    padding:.6em;
+    margin-right:1em;
+    cursor:pointer;
+    border-radius:4px;
+    max-width:145px;   
+     color:white;   
+      border:none;
+
+
+}
+.save-btn{
+    background-color:green;
+}
+.cancel-btn{
+    background-color:red;
+}

@@ -1,0 +1,57 @@
+<div class="admin-section">
+    <div class="header-section">
+        <span>{{userInfo?.name}}<span>-</span><span><u>{{userInfo?.role}}</u></span></span>
+        <button (click)="logout()" class="logout-btn">logout</button>
+    </div>
+    <h4>Course Management Section</h4>
+    <button (click)="openDialog()" class="add-course">Add new course </button>
+    <div class="course-management-section" *ngFor="let course of courses">
+        <div *ngIf="course.id">
+            <div class="courses-container">
+                <div class="course-details">
+                    <a href="#" (click)="onClick($event,course)">
+
+                        {{course.name}}
+                    </a>
+                </div>
+                <div class="course-buttons">
+                    <button (click)="openEditDialog(course)" class="edit-btn">Edit</button>
+                    <button (click)="openConfirmationDialog(course)" class="delete-btn">delete</button>
+
+                </div>
+
+
+            </div>
+            <p *ngIf="isNoCourseId  === course.id">No lessons added yet. Click <button (click)="addLesson(course.id)"
+                    class="add-lesson">Add
+                    Lesson</button> to
+                create one.</p>
+
+            <div *ngIf="isClicked?.id===course?.id">
+                <button *ngIf="isClicked?.lessons?.length" (click)="addLesson(course.id)" class="add-lesson">Add
+                    Lesson</button>
+                <p *ngFor=" let lesson of isClicked?.lessons;index as i">
+                    <span>lesson:{{i+1}}.</span>
+                    {{lesson}}
+                    <button (click)="deleteLesson(isClicked?.id,lesson)" class="delete-btn">delete</button>
+
+
+                </p>
+                <button *ngIf="isClicked?.lessons?.length" (click)="editLessons(isClicked)"
+                    class="edit-btn">edit</button>
+                <div *ngIf="!isClicked?.lessons?.length">
+                    <p>No lessons added yet. Click <button (click)="addLesson(course.id)" class="add-lesson">Add
+                            Lesson</button> to
+                        create one.</p>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>

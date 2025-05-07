@@ -2,6 +2,9 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.
 
+Css:<br>
+clamp():(min-width,prefered-width(in%),max-width)
+
 ## Development server
 
 To start a local development server, run:

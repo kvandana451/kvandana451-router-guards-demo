@@ -1,0 +1,11 @@
+<div class="profile-section">
+    <h4>My Profile</h4>
+    <div *ngIf="userInfo">
+        <label>Username:</label>
+        <input [(ngModel)]="userName" type="text">
+        <p>Role:<u>{{userInfo.role}}</u></p>
+        <button class="save-btn" (click)="save()">Save</button>
+        <button class="cancel-btn" (click)="cancel()">Cancel</button>
+    </div>
+
+</div>

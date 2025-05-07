@@ -1,0 +1,52 @@
+<div class="user-info">
+    <nav class="nav-section">
+        <a routerLink="/profile">
+            <i class="fa-solid fa-user"></i>
+        </a>
+        <button (click)="logout()" class="logout-btn">logout</button>
+
+    </nav>
+    <h2>Hello,here is the user details!!</h2>
+    <div *ngIf="userInfo" [class.user-info-container]="!userInfo.role">
+        <p class="role">
+            <u>Role:</u><span class="info">{{ userInfo.role }}</span>
+        </p>
+        <p class="name">
+            <u>Name:</u><span class="info">{{ userInfo.name }}</span>
+        </p>
+    </div>
+    <h3>Courses you have enrolled</h3>
+    <div *ngIf="enrolledCourses?.length">
+        <div class="course-actions" *ngFor="let enrolled of enrolledCourses; index as i">
+            <p data-id="{{ enrolled.id }}">
+                <span>{{ i + 1 }}.</span>{{ enrolled.name }}
+
+            </p>
+            <div class="course-actions-btn">
+                <button class="enroll-btn unenroll-btn" (click)="unEnroll(enrolled)">
+                    Unenroll
+                </button>
+                <span *ngIf="progress?.length">
+                    <span *ngFor="let data of progress">
+                        <span *ngIf="isMatchingCourse(data.courseId, enrolled.id)">
+                            <span [style.font-weight]="'500'" *ngIf="data.completedCount !== data.total">
+                                {{ data.completedCount }}/{{ data.total }} Lessons Completed
+                            </span>
+                            <span class="badge" *ngIf="data.completedCount === data.total">Completed
+                            </span>
+                        </span>
+                    </span>
+                </span>
+
+                <span class="chip" *ngIf="!doesCourseIdExist(enrolled.id)">
+                    You have not started learning yet
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="!enrolledCourses?.length" [style.margin-bottom]="'1.5em'">
+        <span><i [style.color]="'red'">You have no courses enrolled yet</i></span>
+    </div>
+    <button class="all-courses-btn" routerLink="/courses">All Courses</button>
+</div>
