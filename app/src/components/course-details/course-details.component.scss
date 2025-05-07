@@ -70,9 +70,11 @@ mat-panel-description .completed-btn{
 ::ng-deep youtube-player .youtube-player-placeholder {
     width: 100% !important;
   }
+ 
 
-
-
+  ::ng-deep youtube-player iframe {
+    width: 100% !important;
+  }
 
 @media (min-width:400px){
     ::ng-deep  mat-expansion-panel-header .mat-content{
