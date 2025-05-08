@@ -39,6 +39,7 @@ New courses may not have lessons initially – supports adding them dynamically<
  Backend integration (e.g., Firebase or Node.js + MongoDB)<br>
  Video uploads and comments<br>
  Quizzes & certification<br>
+ Currently supports one student and one admin for demonstration purposes.<br>
 
   Note:<br>
   This project is designed and built entirely by me to demonstrate:<br>
